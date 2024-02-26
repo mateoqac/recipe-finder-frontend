@@ -4,7 +4,7 @@
 
 This is a React-based Recipe Finder app that allows users to search for and discover various recipes. The app utilizes the backend solution to fetch recipe data and display it in a user-friendly interface.
 
-`https://recipe-finder-backend.fly.dev/`
+`https://recipe-finder-backend.fly.dev/api/v1`
 
 ## Features
 
@@ -22,24 +22,18 @@ This is a React-based Recipe Finder app that allows users to search for and disc
 ### Installation
 
 1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/recipe-finder-app.git
-
+    ```bash
+    git clone git@github.com:mateoqac/recipe-finder-frontend.git
 2. Navigate to the project directory:
-   ```bash
-   cd recipe-finder-frontend
-
+    ```bash
+    cd recipe-finder-frontend
 3. Install dependencies:
-   ```bash
-   pnpm install
-
+    ```bash
+    pnpm install
 4. Create a `.env` file and set:
 
-   ```env
-   REACT_APP_BACKEND_BASE_URL=your-backend-url
-(you can use the one provided above)
-
+    ```bash
+    REACT_APP_BACKEND_BASE_URL=https://recipe-finder-backend.fly.dev/api/v1
 5. Running the App:
    ```bash
    pnpm start

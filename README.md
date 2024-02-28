@@ -1,5 +1,7 @@
 # Recipe Finder App
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/767036e5-8e94-46d0-94ea-2a8b0ed3cce6/deploy-status)](https://app.netlify.com/sites/recipe-4-you/deploys)
+
 ## Overview
 
 This is a React-based Recipe Finder app that allows users to search for and discover various recipes. The app utilizes the backend solution to fetch recipe data and display it in a user-friendly interface.

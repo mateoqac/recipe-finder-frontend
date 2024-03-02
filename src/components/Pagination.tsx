@@ -3,9 +3,14 @@ import ReactPaginate from "react-paginate";
 interface PaginationProps {
   onPageChange?: (selectedPage: number) => void;
   pageCount: number;
+  pageNumber: number;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ onPageChange, pageCount }) => {
+const Pagination: React.FC<PaginationProps> = ({
+  onPageChange,
+  pageCount,
+  pageNumber,
+}) => {
   const hasPages = pageCount > 0;
   const handlePageClick = (selectedPage: { selected: number }) => {
     if (onPageChange) {
@@ -24,7 +29,7 @@ const Pagination: React.FC<PaginationProps> = ({ onPageChange, pageCount }) => {
             breakClassName="break-me"
             pageCount={pageCount}
             marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
+            pageRangeDisplayed={3}
             onPageChange={handlePageClick}
             containerClassName="flex items-center"
             pageClassName="px-4 py-2 rounded-md bg-gray-300 text-gray-700"
@@ -32,6 +37,8 @@ const Pagination: React.FC<PaginationProps> = ({ onPageChange, pageCount }) => {
             previousClassName="px-4 py-2 rounded-md bg-gray-300 text-gray-700"
             nextClassName="px-4 py-2 rounded-md bg-gray-300 text-gray-700"
             disabledClassName="opacity-50"
+            forcePage={pageNumber - 1}
+            renderOnZeroPageCount={null}
           />
         </div>
       ) : null}

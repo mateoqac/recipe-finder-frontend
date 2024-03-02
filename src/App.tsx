@@ -10,10 +10,11 @@ function App() {
   const [search, updateSearch] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
 
-  const { recipes, pageCount, loading, getRecipes } = useRecipes({
-    search,
-    pageNumber,
-  });
+  const { recipes, pageCount, currentPageNumber, loading, getRecipes } =
+    useRecipes({
+      search,
+      pageNumber,
+    });
 
   const handleSearch = (ingredients: string) => {
     const trimmed = ingredients.replace(" ", ", ").trim();
@@ -39,7 +40,11 @@ function App() {
       ) : (
         <>
           <Recipes recipes={recipes} />
-          <Pagination onPageChange={handlePageChange} pageCount={pageCount} />
+          <Pagination
+            onPageChange={handlePageChange}
+            pageCount={pageCount}
+            pageNumber={currentPageNumber}
+          />
         </>
       )}
     </main>

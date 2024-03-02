@@ -9,6 +9,7 @@ interface UseRecipesProps {
 interface UseRecipesResult {
   recipes: Recipe[];
   pageCount: number;
+  currentPageNumber: number;
   getRecipes: (props: { search: string; pageNumber?: number }) => Promise<void>;
   loading: boolean;
 }
@@ -19,6 +20,7 @@ export function useRecipes({
 }: UseRecipesProps): UseRecipesResult {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [pageCount, setPageCount] = useState(0);
+  const [currentPageNumber, setcurrentPageNumber] = useState(0);
   const [loading, setLoading] = useState<boolean>(false);
   const [, setError] = useState<null | string>(null);
   const previousSearch = useRef<string>(search);
@@ -32,6 +34,7 @@ export function useRecipes({
         const newRecipes = await searchRecipes(search, pageNumber);
         setRecipes(newRecipes.data);
         setPageCount(newRecipes.meta.total_pages);
+        setcurrentPageNumber(newRecipes.meta.current_page);
       } catch (e: any) {
         setError(e.message);
       } finally {
@@ -41,5 +44,5 @@ export function useRecipes({
     []
   );
 
-  return { recipes, pageCount, getRecipes, loading };
+  return { recipes, pageCount, currentPageNumber, getRecipes, loading };
 }

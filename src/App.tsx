@@ -17,9 +17,8 @@ function App() {
     });
 
   const handleSearch = (ingredients: string) => {
-    const trimmed = ingredients.replace(" ", ", ").trim();
-    updateSearch(trimmed);
-    getRecipes({ search: trimmed });
+    updateSearch(ingredients);
+    getRecipes({ search: ingredients });
   };
 
   const handlePageChange = (page: number) => {
